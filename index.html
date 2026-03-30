@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Project</title>
+  <title>Craiglist Redesign</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header class="header">
-    <div class="logo">My Website</div>
-
+    <div class="logo">Craigslist</div>
     <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">Explore</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#">Location</a>
+      <a href="#">Account</a>
+      <a href="#">View Mode</a>
     </nav>
   </header>
 
   <main class="content">
     <h1>Welcome</h1>
     <p>This is a simple responsive layout.</p>
+
+    <h2>Search</h2>
+
+    <form action="/search" method="get">
+    <input type="text" id="search-input" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+
+    <h3>Items You Might Like</h3>
+
+</form>
+
   </main>
 </body>
 </html>

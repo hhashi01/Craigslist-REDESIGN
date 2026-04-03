@@ -20,6 +20,26 @@
     </main>
   
     <script src="scripts/HTMLInclude.js"></script>
+    <script>
+    function initNav() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
 
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menuToggle.classList.toggle('active');
+      });
+    } else {
+      // If elements aren't found yet, try again shortly
+      setTimeout(initNav, 50);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initNav, 100);
+  });
+</script>
+  
   </body>
 </html>

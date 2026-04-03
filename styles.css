@@ -385,3 +385,15 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.seller-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.seller-link:hover .seller-name {
+  color: #7c3aed;
+}

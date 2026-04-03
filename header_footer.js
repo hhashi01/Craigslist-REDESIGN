@@ -10,11 +10,12 @@ fetch('navigations/header.html')
   .then(html => {
     document.getElementById('nav-placeholder').innerHTML = html;
     loadStyle('header.css');
+    initHamburger();
   });
 
 fetch('navigations/footer.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('footer-placeholder').innerHTML = html;
-    loadStyle('footer.css');
+    loadStyle('navigations/footer.css');
   });

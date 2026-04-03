@@ -83,7 +83,7 @@ body {
 .hero-content h1 {
   font-size: 28px;
   font-weight: 400;
-  color: #222;
+  color: #fff;
   margin-bottom: 4px;
 }
 
@@ -114,6 +114,10 @@ body {
   height: 20px;
   background: #fff;
   border-radius: 50%;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.35); /* was 0.15 */
 }
 
 /* ── Search Bar ── */

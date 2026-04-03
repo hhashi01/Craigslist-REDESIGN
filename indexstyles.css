@@ -78,6 +78,9 @@ body {
   position: relative;
   text-align: center;
   z-index: 1;
+  backdrop-filter: blur(2px);
+  padding: 2px 6px;
+  border-radius: 1px;
 }
 
 .hero-content h1 {
@@ -85,13 +88,13 @@ body {
   font-weight: 400;
   color: #fff;
   margin-bottom: 4px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h1 span {
   display: block;
-  font-size: 36px;
+  font-size: 46px;
   font-weight: bold;
-  color: #7c3aed;
 }
 
 .hero-toggle {
@@ -117,7 +120,7 @@ body {
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.35); /* was 0.15 */
+  background: rgba(0, 0, 0, 0.35);
 }
 
 /* ── Search Bar ── */

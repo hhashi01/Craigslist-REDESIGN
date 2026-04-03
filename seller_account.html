@@ -1,78 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="seller_account_style.css">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seller Account</title>
-  <script src="hamburger_menu.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="seller_account_style.css">
+  <script src="scripts/hamburger_menu.js" defer></script>
+  <script src="header_footer.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Header  -->
-  <header class="seller-header">
-    <div data-include="navigations/header.html"></div>
-  </header>
+  <div id="nav-placeholder"></div>
 
   <main class="seller-page">
 
-    <!-- Seller profile section  -->
+    <!-- Seller profile section -->
     <section class="seller-profile">
-
-      <img src="https://via.placeholder.com/120" 
-           alt="Seller profile photo"
-           class="seller-photo">
-
+      <img src="https://via.placeholder.com/120" alt="Seller profile photo" class="seller-photo">
       <div class="seller-info">
         <h2 class="seller-name">Kyle</h2>
         <p class="seller-rating">★★★★☆</p>
-
-        <p class="seller-bio">
-          Trying out this update for Craigslist seeing if I can make some profit
-          in this day and age.
-        </p>
+        <p class="seller-bio">Trying out this update for Craigslist seeing if I can make some profit in this day and age.</p>
       </div>
-
     </section>
 
     <!-- Seller reviews section -->
     <section class="seller-reviews">
       <h3>Recent reviews of this seller:</h3>
-
       <div class="review-scroll">
 
         <article class="review-card">
-          <img src="https://via.placeholder.com/200x120?text=Honda+Used" alt="">
+          <img src="https://via.placeholder.com/200x120?text=Honda+Used" alt="Honda Used">
           <h4>Honda Used</h4>
           <p class="review-stars">★★★★★</p>
         </article>
 
         <article class="review-card">
-          <img src="https://via.placeholder.com/200x120?text=BMW+Used" alt="">
+          <img src="https://via.placeholder.com/200x120?text=BMW+Used" alt="BMW Used">
           <h4>BMW Used</h4>
           <p class="review-stars">★★★★☆</p>
         </article>
 
         <article class="review-card">
-          <img src="https://via.placeholder.com/200x120?text=Nissan+Used" alt="">
+          <img src="https://via.placeholder.com/200x120?text=Nissan+Used" alt="Nissan Used">
           <h4>Nissan Used</h4>
           <p class="review-stars">★★★★★</p>
         </article>
 
       </div>
-
-      <!-- Navigation dots (static for now) -->
       <div class="review-dots">
         <span class="dot active"></span>
         <span class="dot"></span>
         <span class="dot"></span>
       </div>
-
     </section>
 
   </main>
+
+  <div id="footer-placeholder"></div>
 
 </body>
 </html>

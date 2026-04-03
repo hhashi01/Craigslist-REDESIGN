@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item List</title>
     <link rel="stylesheet" href="styles.css" /> 
+    <link rel="stylesheet" href="styles/itemlist.css" />
 </head>
 
 <body class="responsive">
@@ -14,31 +15,117 @@
   <header>
     <div data-include="navigations/header.html"></div>
   </header>
-    <main id="content" class="content">
-        <h2>Item List</h2>
-        <p>This is the item list page.</p>
+    <main id="content" class="content item-detail-page">
+      <!--Breadcrumb-->
+      <nav class="breadcrumb">
+        <a href="search.html">&lt; Home/Vehicles</a>
+      </nav>
+
+      <div class="item-detail-layout">
+
+        <!-- Left: image carousel -->
+         <div class="item-image">
+          <div class="carousel">
+            <button class="carousel-btn prev">&#8592;</button>
+
+            <img src="images/car1.png" alt="2020 Honda Accord" class="carousel-img active" />
+            <img src="images/car2.jpg" alt="2020 Honda Accord interior" class="carousel-img" />
+            <img src="images/car3.jpg" alt="2020 Honda Accord rear" class="carousel-img" />
+
+            <button class="carousel-btn next">&#8594;</button>
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+         </div>
+         
+        <!-- Right: item details -->
+         <div class="item-info">
+          <div class="item-title-row">
+            <h2>2020 Honda Accord</h2>
+            <span class="item-listed">Listed - 1 day ago</span>
+          </div>
+
+          <p class="item-price">$5000</p>
+
+          <p><strong>Category:</strong>Auto/Vehicle</p>
+          <p><strong>Condition:</strong>Used - Good</p>
+          <p><strong>Details:</strong>Used honda accord, one owner, 100,000 miles. Message for more details.</p>
+         
+          <!--Map-->
+          <div class="item-map">
+            <img src="images/map.png" alt="Map of Charlotte, NC" />
+
+          </div>
+          <p class="item-location">Located: Charlotte, North Carolina</p>
+
+          <!--Seller Info-->
+          <div class="seller-card">
+            <div class="seller-info">
+              <img src="images/avatar.jpg" alt="Seller avatar" class="seller-avatar" />
+              <div>
+                <p class="seller-name">John Doe</p>
+                <div class="seller-rating">
+                  <span>⭐⭐⭐⭐⭐</span>
+                  <span class="review-count">(12 reviews)</span>
+                </div>
+              </div>
+            </div>
+            <!--Message bar-->
+            <div class="message-bar">
+              <input type="text" placeholder="Message Seller" />
+              <button class="send-btn">&#10148;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
     </main>
   
     <script src="scripts/HTMLInclude.js"></script>
+
+    <!-- WAIT for include to finish, THEN load hamburger script -->
     <script>
-    function initNav() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
+    window.addEventListener('load', () => {
+    const script = document.createElement('script');
+    script.src = "scripts/hamburger_menu.js";
+    document.body.appendChild(script);
+    });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
 
-    if (menuToggle && nav) {
-      menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        menuToggle.classList.toggle('active');
-      });
-    } else {
-      // If elements aren't found yet, try again shortly
-      setTimeout(initNav, 50);
-    }
+  // Carousel logic
+  const images = document.querySelectorAll('.carousel-img');
+  const dots = document.querySelectorAll('.dot');
+  let current = 0;
+
+  function goTo(index) {
+    // Remove active from current image and dot
+    images[current].classList.remove('active');
+    dots[current].classList.remove('active');
+
+    // Wrap around the index
+    current = (index + images.length) % images.length;
+
+    // Add active to new image and dot
+    images[current].classList.add('active');
+    dots[current].classList.add('active');
   }
+  // Previous and next button event listeners
+  document.querySelector('.carousel-btn.prev')
+    .addEventListener('click', () => goTo(current - 1));
 
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(initNav, 100);
+  document.querySelector('.carousel-btn.next')
+    .addEventListener('click', () => goTo(current + 1));
+
+  // Make dots clickable too
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goTo(i));
   });
+});
 </script>
   
   </body>

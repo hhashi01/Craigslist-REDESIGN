@@ -1,18 +1,33 @@
 <header class="header">
-  <h1 class="logo">Craiglist</h1>
-
-  <button class="menu-toggle" aria-label="Toggle navigation">
-    <span class="hamburger"></span>
-    <span class="hamburger"></span>
-    <span class="hamburger"></span>
-  </button>
-
-  <nav class="nav" aria-label="primary navigation">
-    <ul>
-      <li><a href="Location.html">Location</a></li>
-      <li><a href="Account.html">Account</a></li>
-      <li><a href="ViewMode.html">View Mode</a></li>
-      <li><a href="itemlist.html">Item List</a></li>
-    </ul>
+  <nav class="nav">
+    <a class="nav-logo" href="#">Craiglist</a>
+    <div class="nav-right">
+      <div class="nav-location">Charlotte, NC</div>
+      <div class="nav-menu" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </nav>
 </header>
+ 
+<!-- Page overlay (shown when drawer is open) -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Slide-out drawer -->
+<aside class="drawer" id="drawer">
+  <button class="drawer-back" id="drawerClose">&#8592;</button>
+  <div class="drawer-header">
+    <h2>Welcome!</h2>
+    <div class="drawer-avatar">&#9786;</div>
+  </div>
+  <div class="drawer-messages">
+    <span class="drawer-count">0</span>
+    <span class="drawer-count-label">Messages</span>
+  </div>
+  <nav class="drawer-nav">
+    <a href="user_account.html">Account</a>
+    <a href="index.html">Home</a>
+  </nav>
+</aside>

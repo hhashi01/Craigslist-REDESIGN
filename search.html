@@ -136,5 +136,15 @@
       </section>
     </section>
   </main>
+  <script src="scripts/HTMLInclude.js"></script>
+
+    <!-- WAIT for include to finish, THEN load hamburger script -->
+    <script>
+    window.addEventListener('load', () => {
+    const script = document.createElement('script');
+    script.src = "scripts/hamburger_menu.js";
+    document.body.appendChild(script);
+    });
+    </script>
 </body>
 </html>

@@ -1,0 +1,204 @@
+/* ITEM DETAIL PAGE */
+
+/* Centers the page and limits max width on large screens */
+.item-detail-page {
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+/* Spacing below the breadcrumb trail */
+.breadcrumb {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  color: #333;
+  text-decoration: none;
+}
+/* Underline on hover for visual feedback */
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+/* Page layout: mobile stacks vertically, desktop side by side */
+.item-detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+/* Carousel container - relative so arrow buttons can be positioned inside it */
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 280px;
+}
+/*Main listing image */
+.carousel-img {
+display: none; /* hide all images by default */ 
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+/*Only the active image is shown, others are hidden*/
+.carousel-img.active {
+  display: block;
+}
+/*shared styles for both prev and next buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* vertically center */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*Position arrows on left and right sides of the carousel */
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+/*Dot indicators showing current image position*/
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+/*Individual dot styles */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+}
+/*Active dot highlighted*/
+.dot.active { background: #333; }
+/*title and "listed x days ago" on same row*/
+.item-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /*wraps on small screens*/
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.item-title-row h2 { font-size: 1.3rem; }
+/*muted timestamp text */
+.item-listed {
+  font-size: 0.85rem;
+  color: #888;
+}
+/* Item price styling */
+.item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+/* Item description styling */
+.item-info p {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+/*MAP*/
+/* Map container with border and rounded corners */
+.item-map {
+  margin: 14px 0 6px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.item-map img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover; /*crops map image to fill container*/
+}
+/* Item location text styling */
+.item-location {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+/*SELLER*/
+/* Outlined card wrapping seller info and message input */
+.seller-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 14px;
+}
+/* Avatar and seller name/rating side by side */
+.seller-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+/* Circular seller profile picture */
+.seller-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee; /* fallback if image fails to load */
+}
+
+.seller-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+/* Star rating and review count on same row */
+.seller-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+/* Muted review count e.g. "(12)" */
+.review-count { color: #666; }
+/* Message input bar styling */
+/* Pill-shaped input row at the bottom of the seller card */
+.message-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 6px 12px;
+  gap: 8px;
+}
+/* Input takes up all available space */
+.message-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+/* Send arrow button */
+.send-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #555;
+}
+/*Desktop layout*/
+/* On wider screens, place carousel and item info side by side */
+@media (min-width: 768px) {
+  .item-detail-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  /*each column takes up equal space*/
+  .item-image { flex: 1; }
+  .item-info { flex: 1; }
+}

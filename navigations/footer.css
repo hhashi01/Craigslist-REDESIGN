@@ -2,7 +2,7 @@
 .footer {
   position: relative;
   height: 280px;
-  background: url('images/cltsky2.jpg') center bottom/cover no-repeat;
+  background: url('cltsky2.jpg') center bottom/cover no-repeat;
   display: flex;
   align-items: center;
   padding: 0 20px;

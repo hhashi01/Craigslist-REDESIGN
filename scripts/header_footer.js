@@ -9,7 +9,7 @@ fetch('navigations/header.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('nav-placeholder').innerHTML = html;
-    loadStyle('header.css');
+    loadStyle('navigations/header.css');
     initHamburger();
   });
 

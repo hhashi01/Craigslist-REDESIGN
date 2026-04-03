@@ -26,21 +26,52 @@
   <!-- Page overlay (shown when drawer is open) -->
   <div class="overlay" id="overlay"></div>
  
-  <!-- Slide-out drawer -->
-  <aside class="drawer" id="drawer">
-    <button class="drawer-back" id="drawerClose">&#8592;</button>
-    <div class="drawer-header">
-      <h2>Welcome!</h2>
-      <div class="drawer-avatar">&#9786;</div>
+<section class="drawer" id="drawer">
+
+  <button class="drawer-back" id="drawerClose">&#8592;</button>
+
+  <!-- Profile -->
+  <div class="drawer-header">
+    <div>
+      <p class="drawer-greeting">Welcome back,</p>
+      <h2>First</h2>
+      <h3>Last</h3>
     </div>
-    <div class="drawer-messages">
-      <span class="drawer-count">0</span>
-      <span class="drawer-count-label">Messages</span>
+    <div class="drawer-avatar">&#9786;</div>
+  </div>
+
+  <!-- Post Button -->
+  <a href="#" class="drawer-post">+ Make a Post</a>
+
+  <!-- Stats Row -->
+  <div class="drawer-stats">
+    <div class="drawer-stat">
+      <span class="drawer-stat-num">0</span>
+      <span class="drawer-stat-label">Messages</span>
     </div>
-    <div class="drawer-notification">Notification</div>
-    <div class="drawer-notification">Notification</div>
-    <div class="drawer-notification">Notification</div>
-  </aside>
+    <div class="drawer-stat">
+      <span class="drawer-stat-num">3</span>
+      <span class="drawer-stat-label">Listings</span>
+    </div>
+    <div class="drawer-stat">
+      <span class="drawer-stat-num">7</span>
+      <span class="drawer-stat-label">Saved</span>
+    </div>
+  </div>
+
+  <!-- Nav Links -->
+  <nav class="drawer-nav">
+    <a href="#" class="drawer-link">Messages</a>
+    <a href="#" class="drawer-link">My Listings</a>
+    <a href="#" class="drawer-link">Saved Items</a>
+    <a href="#" class="drawer-link">Search History</a>
+    <a href="#" class="drawer-link">Settings</a>
+  </nav>
+
+  <!-- Sign Out -->
+  <a href="#" class="drawer-signout">Sign Out</a>
+
+</section>
 
   <section class="hero">
     <div class="hero-overlay"></div>

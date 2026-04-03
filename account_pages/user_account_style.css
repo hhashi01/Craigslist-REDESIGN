@@ -1,0 +1,221 @@
+/* 
+   This stylesheet contains ONLY the styles unique to the
+   user account page. It extends from the global styles.css file.
+*/
+
+
+/* 
+   Page wrapper:
+   Adds spacing and ensures consistent layout across devices.
+*/
+.account-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px;
+}
+
+
+
+/* 
+   User profile section:
+   Appears at the top on mobile and left on desktop.
+*/
+
+.account-profile {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 320px;
+}
+
+/* Profile photo styling */
+.account-profile-photo {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* Username */
+.account-username {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+/* Location text */
+.account-location {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Bio text */
+.account-bio {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* Star rating */
+.account-rating {
+  font-size: 1.4rem;
+  color: #f4b400; /* gold/yellow star color */
+}
+
+
+
+/* 
+   User posts section:
+   Reuses the search card grid layout from styles.css.
+   Only adds spacing and heading styling.
+*/
+
+.account-posts h2 {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+}
+
+
+
+/*
+   Reviews section:
+   Displays user reviews in a card layout.
+*/
+
+.account-reviews {
+  margin-top: 20px;
+}
+
+.account-reviews h2 {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+}
+
+/* Review list container */
+.review-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* Individual review card */
+.review-card {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* Star rating inside review */
+.review-rating {
+  font-size: 1.2rem;
+  color: #f4b400;
+  margin-bottom: 8px;
+}
+
+/* Review text */
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.review-list {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.review-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.review-list::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+/* Review card stays the same, but now works horizontally */
+.review-card {
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/*
+   Responsive behavior:
+   On desktop: profile on the left, posts + reviews on the right.
+   On mobile: everything stacks vertically.
+*/
+
+@media (min-width: 900px) {
+  .account-page {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  /* Profile stays fixed width on desktop */
+  .account-profile {
+    flex-shrink: 0;
+    width: 280px;
+  }
+
+  /* Posts + reviews take remaining space */
+  .account-posts,
+  .account-reviews {
+    flex: 1;
+    margin-left: 32px;
+  }
+}
+
+/*
+   Scrollable posts section:
+   Adds a fixed height and vertical scrollbar to the user's posts.
+*/
+
+.account-posts {
+  max-height: 500px;        /* Adjust height as needed */
+  overflow-y: auto;         /* Enables vertical scrolling */
+  padding-right: 10px;      /* Prevents content from touching scrollbar */
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+/*
+   Scrollable review section:
+   Keeps reviews contained with a scrollbar.
+*/
+
+.account-reviews {
+  max-height: 400px;        /* Adjust height as needed */
+  overflow-y: auto;
+  padding-right: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+/*
+   Enhanced search card styling for user listings:
+   Adds a clean border, shadow, and spacing to each user listing.
+*/
+
+.search-card {
+  border: 2px solid #e0e0e0;      /* Stronger border for clarity */
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Soft shadow for depth */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover effect for desktop users */
+.search-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}

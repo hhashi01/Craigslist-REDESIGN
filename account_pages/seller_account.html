@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="seller_account_style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seller Account</title>
+
+  <!-- Link to your global styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Link to seller‑specific styles -->
+  <link rel="stylesheet" href="user_account_style.css">
+</head>
+
+<body>
+
+  <!-- Header  -->
+  <header class="seller-header">
+    <div data-include="navigations/header.html"></div>
+  </header>
+
+  <main class="seller-page">
+
+    <!-- Seller profile section  -->
+    <section class="seller-profile">
+
+      <img src="https://via.placeholder.com/120" 
+           alt="Seller profile photo"
+           class="seller-photo">
+
+      <div class="seller-info">
+        <h2 class="seller-name">Kyle</h2>
+        <p class="seller-rating">★★★★☆</p>
+
+        <p class="seller-bio">
+          Trying out this update for Craigslist seeing if I can make some profit
+          in this day and age.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Seller reviews section -->
+    <section class="seller-reviews">
+      <h3>Recent reviews of this seller:</h3>
+
+      <div class="review-scroll">
+
+        <article class="review-card">
+          <img src="https://via.placeholder.com/200x120?text=Honda+Used" alt="">
+          <h4>Honda Used</h4>
+          <p class="review-stars">★★★★★</p>
+        </article>
+
+        <article class="review-card">
+          <img src="https://via.placeholder.com/200x120?text=BMW+Used" alt="">
+          <h4>BMW Used</h4>
+          <p class="review-stars">★★★★☆</p>
+        </article>
+
+        <article class="review-card">
+          <img src="https://via.placeholder.com/200x120?text=Nissan+Used" alt="">
+          <h4>Nissan Used</h4>
+          <p class="review-stars">★★★★★</p>
+        </article>
+
+      </div>
+
+      <!-- Navigation dots (static for now) -->
+      <div class="review-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

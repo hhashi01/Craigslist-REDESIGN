@@ -66,47 +66,39 @@
 
             <!-- SIDEBAR FILTERS -->
             <aside class="search-filters">
-                <h2>Filters</h2>
+            <button class="filters-toggle" id="filtersToggle">Filters &#9660;</button>
 
-                <!-- PRICE FILTER -->
+            <div class="filters-body" id="filtersBody">
+
                 <div class="search-filter-group">
-                    <h3>Price Range</h3>
-
-                    <div class="search-price-range">
-                        <!-- Minimum price input -->
-                        <input type="text" placeholder="Min" />
-
-                        <!-- Just a dash between inputs -->
-                        <span>—</span>
-
-                        <!-- Maximum price input -->
-                        <input type="text" placeholder="Max" />
-                    </div>
+                <h3>Price Range</h3>
+                <div class="search-price-range">
+                    <input type="text" placeholder="Min" />
+                    <span>—</span>
+                    <input type="text" placeholder="Max" />
+                </div>
                 </div>
 
-                <!-- CONDITION FILTER (checkboxes = multiple allowed) -->
                 <div class="search-filter-group">
-                    <h3>Condition</h3>
-
-                    <label><input type="checkbox" /> New</label>
-                    <label><input type="checkbox" /> Like New</label>
-                    <label><input type="checkbox" /> Good</label>
-                    <label><input type="checkbox" /> Fair</label>
-                    <label><input type="checkbox" /> Used</label>
+                <h3>Condition</h3>
+                <label><input type="checkbox" /> New</label>
+                <label><input type="checkbox" /> Like New</label>
+                <label><input type="checkbox" /> Good</label>
+                <label><input type="checkbox" /> Fair</label>
+                <label><input type="checkbox" /> Used</label>
                 </div>
 
-                <!-- DATE FILTER (radio = only one choice allowed) -->
                 <div class="search-filter-group">
-                    <h3>Posted</h3>
-
-                    <label><input type="radio" name="posted" /> Last 24 hours</label>
-                    <label><input type="radio" name="posted" /> Last 7 days</label>
-                    <label><input type="radio" name="posted" /> Last 30 days</label>
-                    <label><input type="radio" name="posted" /> Anytime</label>
+                <h3>Posted</h3>
+                <label><input type="radio" name="posted" /> Last 24 hours</label>
+                <label><input type="radio" name="posted" /> Last 7 days</label>
+                <label><input type="radio" name="posted" /> Last 30 days</label>
+                <label><input type="radio" name="posted" /> Anytime</label>
                 </div>
 
-                <!-- BUTTON TO APPLY FILTERS -->
                 <button class="search-apply-btn" type="button">Apply Filters</button>
+
+            </div>
             </aside>
 
             <!-- SEARCH RESULTS GRID -->
@@ -200,6 +192,13 @@
 <div id="footer-placeholder"></div>
 
   </main>
-
+<script>
+  document.getElementById('filtersToggle').addEventListener('click', () => {
+    const body = document.getElementById('filtersBody');
+    const btn = document.getElementById('filtersToggle');
+    body.classList.toggle('open');
+    btn.innerHTML = body.classList.contains('open') ? 'Filters &#9650;' : 'Filters &#9660;';
+  });
+</script>
 </body>
 </html>

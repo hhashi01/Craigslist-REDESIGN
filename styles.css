@@ -253,11 +253,6 @@ body {
   padding: 18px;
 }
 
-.search-filters h2 {
-  font-size: 1.25rem;
-  margin-bottom: 18px;
-}
-
 .search-filter-group {
   margin-bottom: 20px;
 }
@@ -396,4 +391,31 @@ body {
 
 .seller-link:hover .seller-name {
   color: #7c3aed;
+}
+
+/* ── Filters Toggle ── */
+.filters-toggle {
+  width: 100%;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+}
+
+.filters-toggle:hover {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.filters-body {
+  display: none;
+  margin-top: 12px;
+}
+
+.filters-body.open {
+  display: block;
 }

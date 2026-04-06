@@ -75,6 +75,8 @@ body {
   z-index: 1;
   padding: 2px 6px;
   border-radius: 1px;
+  /* Hero fade */
+  animation: hero-fade-down 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-content h1 {
@@ -105,6 +107,22 @@ body {
   overflow: visible;
   flex-wrap: wrap;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  /* Hero fade */
+  animation: hero-fade-down 1.55s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  /* Search focus */
+  transition:
+    width 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.search-bar.focused {
+  width: 720px;
+  max-width: 90%;
+  transform: translateY(-3px);
+  box-shadow:
+    0 6px 24px rgba(124, 58, 237, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar input {
@@ -126,6 +144,11 @@ body {
   font-size: 15px;
   cursor: pointer;
   border-radius: 0 30px 30px 0;
+}
+
+.search-bar button:hover {
+  background: #6d28d9;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.55), 0 0 4px rgba(124, 58, 237, 0.3);
 }
 
 .search-suggestions {
@@ -335,6 +358,19 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes hero-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================

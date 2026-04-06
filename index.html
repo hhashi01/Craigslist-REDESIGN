@@ -41,7 +41,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Keep overlay tinted in dark mode */
     html.dark #search-loader {
       background: rgba(0, 0, 0, 0.35);
     }
@@ -297,6 +296,11 @@
 
   input.addEventListener('blur', () => {
     setTimeout(() => list.innerHTML = '', 150);
+    document.getElementById('searchBarWrapper').classList.remove('focused');
+  });
+
+  input.addEventListener('focus', () => {
+    document.getElementById('searchBarWrapper').classList.add('focused');
   });
 
   function submitSearch() {

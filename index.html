@@ -8,10 +8,52 @@
   <script src="scripts/darkmode.js"></script>
   <script src="scripts/hamburger_menu.js" defer></script>
   <script src="scripts/header_footer.js" defer></script>
-  
+
+  <style>
+    /* ── Search loader overlay ── */
+    /* ── Consulted Claude to design this feature, code is re-worked ── */
+    #search-loader {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #search-loader.active {
+      display: flex;
+    }
+
+    .loader-spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(124, 58, 237, 0.18);
+      border-top-color: #7c3aed;
+      border-radius: 50%;
+      animation: loader-spin 0.65s linear infinite;
+    }
+
+    @keyframes loader-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Keep overlay tinted in dark mode */
+    html.dark #search-loader {
+      background: rgba(0, 0, 0, 0.35);
+    }
+  </style>
 </head>
 
 <body>
+
+  <!-- Loading overlay (home-page search only) -->
+  <div id="search-loader">
+    <div class="loader-spinner"></div>
+  </div>
 
   <div id="nav-placeholder"></div>
 
@@ -259,11 +301,14 @@
 
   function submitSearch() {
     const query = input.value.trim();
-    if (query) {
-      window.location.href = 'search.html?q=' + encodeURIComponent(query);
-    } else {
-      window.location.href = 'search.html';
-    }
+    const dest = query
+      ? 'search.html?q=' + encodeURIComponent(query)
+      : 'search.html';
+
+    // Show the loader overlay, then navigate after 700 ms
+    const loader = document.getElementById('search-loader');
+    loader.classList.add('active');
+    setTimeout(() => { window.location.href = dest; }, 700);
   }
 </script>
 

@@ -93,3 +93,30 @@
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 16px;
 }
+
+/* =========================
+   DARK MODE
+======================== */
+html.dark .footer-glass {
+  background: rgba(15, 15, 20, 0.80);
+}
+
+html.dark .footer-tagline {
+  color: #aaa;
+}
+
+html.dark .footer-col h4 {
+  color: #666;
+}
+
+html.dark .footer-col a {
+  color: #ccc;
+}
+
+html.dark .footer-col a:hover {
+  color: #a78bfa;
+}
+
+html.dark .footer-copy {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}

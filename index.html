@@ -316,6 +316,16 @@
   }
 </script>
 
+<!-- Turns off fade in animation for card so cool tilt effect works -->
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('animationend', () => {
+    card.style.animation = 'none';
+    card.style.opacity = '1';
+  });
+});
+</script>
+
 <!-- Cool card effect -->
 <script>
   document.querySelectorAll('.card, .search-card, .search-card-link').forEach(card => {
@@ -338,5 +348,6 @@
     });
   });
 </script>
+
 </body>
 </html>

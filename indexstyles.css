@@ -55,7 +55,7 @@ body {
 .hero {
   position: relative;
   height: 320px;
-  min-height: clamp(400px, 50vw, 75vh);
+  min-height: clamp(400px, 50vw, 67vh);
   background: url('images/cltskyday.jpg') top center /cover no-repeat;  display: flex;
   flex-direction: column;
   align-items: center;
@@ -374,6 +374,29 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes card-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cards .card {
+  opacity: 0;
+  animation: card-fade-up 2.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cards .card:nth-child(1) { animation-delay: 1.25s; }
+.cards .card:nth-child(2) { animation-delay: 1.32s; }
+.cards .card:nth-child(3) { animation-delay: 1.49s; }
+.cards .card:nth-child(4) { animation-delay: 1.56s; }
+.cards .card:nth-child(5) { animation-delay: 1.63s; }
+.cards .card:nth-child(6) { animation-delay: 1.70s; }
 
 /* =========================
    RESPONSIVE

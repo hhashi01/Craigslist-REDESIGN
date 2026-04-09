@@ -33,3 +33,5 @@ fetch('navigations/footer.html')
     const navHeight = document.getElementById('nav-placeholder').offsetHeight;
     document.querySelector('.page-content').style.paddingTop = navHeight + 'px';
   });
+
+  

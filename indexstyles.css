@@ -308,7 +308,7 @@ body {
   display: flex;
   gap: 20px;
   padding: 0 20px 32px;
-  align-items: stretch;
+  align-items: center;
 }
 
 .about-glass {
@@ -324,19 +324,19 @@ body {
 }
 
 .about-glass h2 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
   color: var(--text);
 }
 
 .about-glass p {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.7;
 }
 
 .about-link {
-  font-size: 14px;
+  font-size: 16px;
   color: #7c3aed;
   text-decoration: none;
   font-weight: bold;
@@ -352,6 +352,7 @@ body {
   border-radius: 20px;
   overflow: hidden;
   min-height: 280px;
+  min-width: 50%;
 }
 
 .about-photo img {

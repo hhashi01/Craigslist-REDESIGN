@@ -149,7 +149,7 @@ html.dark .nav {
 /* =========================
    RESPONSIVE
 ========================= */
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .nav-menu {
     display: none;
   }
@@ -163,13 +163,13 @@ html.dark .nav {
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 699px) {
   .nav-location {
     display: none;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .footer-links {
     flex-direction: column;
     gap: 24px;
@@ -232,12 +232,12 @@ html.dark .nav {
   left: 5px;
 }
 
-/* Desktop toggle: visible above 600px */
+/* Desktop toggle: visible above 700px */
 #darkToggle {
   display: none;
 }
 
-@media (min-width: 601px) {
+@media (min-width: 700px) {
   #darkToggle {
     display: block;
   }

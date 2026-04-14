@@ -74,7 +74,53 @@ const RULES = {
   },
 };
 
+/* Password strength cool thing */
+/* This tool comes from a template online */
+ 
+function scorePassword(val) {
+  if (!val) return { score: 0, label: "", color: "" };
 
+  let score = 0;
+
+  // Length checks
+  if (val.length >= 8) score++;
+  if (val.length >= 12) score++;
+
+  // Character checks
+  if (/[A-Z]/.test(val)) score++;
+  if (/[a-z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+
+  // Map score → label + color
+  const levels = [
+    { max: 2, label: "Weak",   color: "#ef4444" },
+    { max: 3, label: "Fair",   color: "#f59e0b" },
+    { max: 4, label: "Good",   color: "#3b82f6" },
+    { max: 6, label: "Strong", color: "#22c55e" }
+  ];
+
+  const level = levels.find(l => score <= l.max);
+  return { score, label: level.label, color: level.color };
+}
+
+function updateStrengthMeter(val) {
+  const wrap  = document.getElementById("strength-wrap");
+  const fill  = document.getElementById("strength-fill");
+  const text  = document.getElementById("strength-text");
+
+  if (!val) return (wrap.hidden = true);
+
+  wrap.hidden = false;
+
+  const { score, label, color } = scorePassword(val);
+  const pct = Math.round((score / 6) * 100);
+
+  // This line is from Claude
+  fill.style.cssText = `width:${pct}%;background:${color}`;
+  text.textContent = label;
+  text.style.color = color;
+}
 
 /*  set / clear field validation state */
 

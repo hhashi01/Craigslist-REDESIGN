@@ -5,6 +5,57 @@
 
 window.accountCreated = false;
 
+/* --------------------------------------------------------------------------
+   NAV BUTTON — swap "Sign Up" ↔ "Your Account"
+
+   updateNavAccountBtn() reads window.accountCreated and updates the
+   #nav-account-btn anchor text + href accordingly.
+
+   watchForNav() uses a MutationObserver on #nav-placeholder so the check
+   runs automatically on every page once header_footer.js injects the nav.
+   It also gets called directly after a successful sign-up (same session).
+   -------------------------------------------------------------------------- */
+
+function updateNavAccountBtn() {
+  const btn = document.getElementById("nav-account-btn");
+  if (!btn) return;
+
+  if (window.accountCreated) {
+    btn.href      = "user_account.html";
+    btn.innerHTML = "<b>Your Account</b>";
+    btn.setAttribute("aria-label", "Go to your account");
+  } else {
+    btn.href      = "signup.html";
+    btn.innerHTML = "<b>Sign Up</b>";
+    btn.setAttribute("aria-label", "Sign up for an account");
+  }
+}
+
+function watchForNav() {
+  const placeholder = document.getElementById("nav-placeholder");
+  if (!placeholder) return;
+
+  if (document.getElementById("nav-account-btn")) {
+    updateNavAccountBtn();
+    return;
+  }
+
+  const observer = new MutationObserver(() => {
+    if (document.getElementById("nav-account-btn")) {
+      updateNavAccountBtn();
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(placeholder, { childList: true, subtree: true });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", watchForNav);
+} else {
+  watchForNav();
+}
+
 /* Validation: each entry maps a field id → { validate(value) → string | null }
    Returning a string means invalid; null means valid. */
 
@@ -266,6 +317,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // All good? Success!
     window.accountCreated = true;
+
+    // Update the nav button immediately in the same session.
+    updateNavAccountBtn();
 
     form.hidden    = true;
     success.hidden = false;

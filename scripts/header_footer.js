@@ -14,6 +14,8 @@ fetch('navigations/header.html')
     loadStyle('navigations/header.css');
     initHamburger();
     initDarkModeToggle();
+    updateNavAccountBtn();       // ← move here, guaranteed to run after injection
+    updateDrawerAccountState();  // ← add here, same reason
 
     const navHeight = document.getElementById('nav-placeholder').offsetHeight;
     document.body.style.paddingTop = navHeight + 'px';
@@ -41,27 +43,35 @@ function updateNavAccountBtn() {
   }
 }
 
-function watchForNav() {
-  const placeholder = document.getElementById("nav-placeholder");
-  if (!placeholder) return;
+function updateDrawerAccountState() {
+  const greeting     = document.getElementById("drawer-greeting");
+  const nameLink     = document.getElementById("drawer-name-link");
+  const drawerAvatar = document.getElementById("drawer-avatar");
+  const drawerBtn    = document.getElementById("drawer-account-btn");
 
-  if (document.getElementById("nav-account-btn")) {
-    updateNavAccountBtn();
-    return;
+  if (!drawerBtn) return;
+
+  if (window.accountCreated) {
+    if (greeting)     greeting.textContent = "Welcome back,";
+    if (nameLink)     nameLink.href        = "user_account.html";
+    if (drawerAvatar) drawerAvatar.href    = "user_account.html";
+    drawerBtn.textContent                  = "View my Account";
+    drawerBtn.href                         = "user_account.html";
+  } else {
+    if (greeting)     greeting.textContent = "Hello, stranger!";
+    if (nameLink)     nameLink.href        = "signup.html";
+    if (drawerAvatar) drawerAvatar.href    = "signup.html";
+    drawerBtn.textContent                  = "Sign Up";
+    drawerBtn.href                         = "signup.html";
   }
-
-  const observer = new MutationObserver(() => {
-    if (document.getElementById("nav-account-btn")) {
-      updateNavAccountBtn();
-      observer.disconnect();
-    }
-  });
-
-  observer.observe(placeholder, { childList: true, subtree: true });
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", watchForNav);
+  document.addEventListener("DOMContentLoaded", () => {
+    updateNavAccountBtn();
+    updateDrawerAccountState();
+  });
 } else {
-  watchForNav();
+  updateNavAccountBtn();
+  updateDrawerAccountState();
 }

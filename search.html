@@ -358,13 +358,15 @@ const suggestions = [
 
   cards.forEach(card => {
     const title = card.querySelector('h3').textContent.toLowerCase();
+    const cardText = card.textContent.toLowerCase() + " car cars vehicle auto";
+
     const priceText = card.querySelector('.search-price').textContent.replace(/[^0-9]/g, '');
     const price = parseInt(priceText);
 
     let matches = true;
 
     // keyword
-    if (lower && !title.includes(lower)) matches = false;
+      if (lower && !cardText.includes(lower)) matches = false;
 
     // price
     if (minPrice && price < parseInt(minPrice)) matches = false;
